@@ -11,21 +11,18 @@ while opcion != 0:  # Mientras la opción ingresada no sea 0
         opcion = int(opcion)
         if opcion == 1:  # Agregar producto
             print("agregar producto")
-            nombre = input("nombre del producto: ")
-            cantidad = int(input("cantidad: "))
+            nombre = input("nombre del producto: ")  
+            cantidad = int(input("cantidad: "))    # Se le pide al usuario que ingrese el nombre y la cantidad del producto
             while cantidad < 1:
-                print("La cantidad debe ser mayor a 0")
+                print("La cantidad debe ser mayor a 0")  # Se verifica que la cantidad sea mayor a 0
                 cantidad = int(input("cantidad: "))
             encontrado = False
-            nombre = nombre.lower()
-
-            
+            nombre = nombre.lower()   # Se convierte el nombre a minúsculas
             for producto in lista_productos:
                 if producto[0] == nombre:  # Verifica si el producto ya existe
                     producto[1] += cantidad  # Suma la cantidad al producto existente
                     encontrado = True
                     break
-            
             if not encontrado:
                 lista_productos.append([nombre, cantidad]) # Agrega el producto a la lista
         elif opcion == 2:
@@ -42,7 +39,7 @@ while opcion != 0:  # Mientras la opción ingresada no sea 0
         elif opcion == 3:
             print("listar productos")
             for producto in lista_productos:
-                print(f"Producto: {producto[0]}, Cantidad: {producto[1]}")
+                print(f"Producto: {producto[0]}, Cantidad: {producto[1]}")   # Muestra los productos y sus cantidades
         else:
             print("salir")
             exit(1)
